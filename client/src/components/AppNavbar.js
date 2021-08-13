@@ -1,4 +1,5 @@
-import { useState } from "react";
+import './appnavbar.css'
+import { useState } from 'react'
 import {
   Collapse,
   Navbar,
@@ -7,18 +8,18 @@ import {
   NavItem,
   NavLink,
   Container,
-} from "reactstrap";
+} from 'reactstrap'
 
 const AppNavbar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false)
 
   const handleToggle = () => {
-    setCollapsed(!collapsed);
-  };
+    setCollapsed(!collapsed)
+  }
 
   return (
     <div>
-      <Navbar color="dark" dark expand="sm" className="mb-5">
+      <Navbar color="dark" dark expand="sm">
         <Container>
           <NavbarToggler onClick={handleToggle} />
           <Collapse isOpen={collapsed} navbar>
@@ -32,12 +33,15 @@ const AppNavbar = () => {
               <NavItem>
                 <NavLink href="#projects">Projects</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="#contact">Contact Me</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Container>
       </Navbar>
     </div>
-  );
-};
+  )
+}
 
-export default AppNavbar;
+export default AppNavbar

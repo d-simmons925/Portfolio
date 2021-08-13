@@ -1,43 +1,48 @@
-import { useState } from "react";
-import { Alert } from "reactstrap";
-import ContactModal from "./ContactModal";
+import './header.css'
+import resume from '../files/Resume.pdf'
+import me from '../images/me.jpg'
 
 const Header = () => {
-  const [msg, setMsg] = useState(null);
-
-  const onDismiss = () => setMsg(null);
-
-  const handleMsg = (data) => {
-    setMsg(data);
-  };
-
   return (
     <div id="main-header">
-      {msg && msg.type === "success" ? (
-        <Alert color="primary" toggle={onDismiss}>
-          {msg.msg}
-        </Alert>
-      ) : null}
-      {msg && msg.type === "error" ? (
-        <Alert color="danger" toggle={onDismiss}>
-          {msg.msg}
-        </Alert>
-      ) : null}
       <h1>
-        <span className="my-name">David Simmons </span>| Web Developer
+        <span className="my-name">David Simmons </span>
+        <span className="spacer">|</span> Web Developer
       </h1>
-      <div className="header-buttons">
-        <ContactModal handleMsg={handleMsg} />
-        <a
-          href="https://github.com/d-simmons925"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Github
-        </a>
+      <img src={me} alt="David Simmons" className="header-img" />
+      <div className="header-links">
+        <div className="header-link">
+          <a
+            href="https://www.linkedin.com/in/david-s-194427218/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-linkedin" aria-label="Linked-in"></i>
+          </a>
+          <p>LinkedIn</p>
+        </div>
+        <div className="header-link">
+          <a
+            href="https://github.com/d-simmons925"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-github" aria-label="github"></i>
+          </a>
+          <p>Github</p>
+        </div>
+        <div className="header-link">
+          <a href={resume} download>
+            <i
+              className="fas fa-file-download"
+              aria-label="download resume"
+            ></i>
+          </a>
+          <p>download resume</p>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

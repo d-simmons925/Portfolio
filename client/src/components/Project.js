@@ -1,15 +1,15 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment } from 'react'
 
 const Project = ({ title, src, demo, github }) => {
-  const [visible, setVisible] = useState();
+  const [visible, setVisible] = useState()
 
   const handleMouseEnter = () => {
-    setVisible(true);
-  };
+    setVisible(true)
+  }
 
   const handleMouseLeave = () => {
-    setVisible(false);
-  };
+    setVisible(false)
+  }
 
   const buttons = (
     <Fragment>
@@ -22,7 +22,7 @@ const Project = ({ title, src, demo, github }) => {
         </a>
       </div>
     </Fragment>
-  );
+  )
 
   return (
     <div className="project">
@@ -33,10 +33,10 @@ const Project = ({ title, src, demo, github }) => {
         onMouseLeave={handleMouseLeave}
       >
         <img src={src} alt={`screenshot of ${title}`} />
-        {visible ? buttons : ""}
+        {visible ? buttons : ''}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project
