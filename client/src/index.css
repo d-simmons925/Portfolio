@@ -1,0 +1,53 @@
+.slidefromleft-enter {
+  transform: translateX(-400%);
+}
+
+.slidefromleft-enter-active {
+  transform: translateX(0);
+  transition: transform 800ms ease;
+}
+
+.slidefromleft-exit {
+  transform: translateX(0);
+}
+
+.slidefromleft-exit-active {
+  transform: translateX(-400%);
+  transition: 800ms ease;
+}
+
+.slidefromright-enter {
+  transform: translateX(400%);
+}
+
+.slidefromright-enter-active {
+  transform: translateX(0);
+  transition: transform 800ms ease;
+}
+
+.slidefromright-exit {
+  transform: translateX(0);
+}
+
+.slidefromright-exit-active {
+  transform: translateX(400%);
+  transition: 800ms ease;
+}
+
+.slidefrombottom-enter {
+  transform: translateY(400%);
+}
+
+.slidefrombottom-enter-active {
+  transform: translateY(0);
+  transition: transform 800ms ease;
+}
+
+.slidefrombottom-exit {
+  transform: translateY(0);
+}
+
+.slidefrombottom-exit-active {
+  transform: translateY(400%);
+  transition: 800ms ease;
+}
