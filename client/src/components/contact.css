@@ -25,6 +25,7 @@
 .form-container {
   width: 400px;
   transform: skewY(-2deg);
+  overflow: hidden;
 }
 
 .form-control {
@@ -40,7 +41,7 @@
   display: block;
   border: 0;
   border-bottom: 3px #fff solid;
-  width: 100%;
+  width: 97%;
   padding: 25px 0;
   font-size: 18px;
   color: #fff;
@@ -68,7 +69,7 @@
 }
 
 .input-textarea {
-  width: 100%;
+  width: 97%;
   display: block;
   background-color: transparent;
   border: 2px #fff solid;
