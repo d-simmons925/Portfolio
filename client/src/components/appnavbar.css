@@ -1,30 +1,73 @@
-.navbar {
+nav {
+  background-color: rgb(5, 38, 65);
   position: fixed;
-  top: 0;
   width: 100%;
-  transform: skewY(2deg) translateY(-75px);
-  padding-top: 100px;
-  z-index: 1;
+  height: 130px;
+  max-height: 130px;
+  z-index: 3;
+  transform: skewY(2deg) translateY(-50px);
+}
+.nav-container {
+  margin-top: 50px;
+  transform: skewY(-2deg);
+  overflow-y: hidden;
+}
+.links-container {
+  overflow-y: hidden;
 }
 
-.bg-dark {
-  background-color: rgb(5, 38, 65) !important;
+.nav-toggler {
+  display: none;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 25px;
+  margin: 15px;
+  cursor: pointer;
+}
+.nav-items {
+  margin-left: 20%;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: white;
+.nav-items a {
+  color: #fff;
   text-decoration: none;
-  font-size: 22px;
-  margin-left: 30px;
-  transform: skewY(-2deg);
+  font-size: 24px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
-.navbar-toggler {
-  border-color: white !important;
-  color: white !important;
-  transform: skewY(-2deg);
+.nav-items a:hover {
+  text-decoration: underline;
+}
+.show-collapse {
+  visibility: visible !important;
+  background-color: rgb(5, 38, 65);
+  overflow-y: hidden;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #aec5eb;
+@media (max-width: 580px) {
+  .nav-toggler {
+    display: inline-block;
+  }
+  .nav-items {
+    display: none;
+  }
+  .nav-items {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    visibility: hidden;
+    background-color: rgb(5, 38, 65);
+    flex-direction: column;
+    padding-bottom: 20px;
+    overflow: hidden;
+  }
+  .nav-items a {
+    transform: skewY(-2deg);
+  }
 }

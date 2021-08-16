@@ -47,7 +47,33 @@
   transform: translateY(0);
 }
 
-.slidefrombottom-exit-active {
-  transform: translateY(400%);
+.slidefromtop-exit-active {
+  transform: translateY(400%) skewY(2deg);
+  transition: 800ms ease;
+}
+
+.slidefromtop-enter {
+  visibility: hidden;
+  transform: translateY(-400%) skewY(2deg);
+}
+
+.slidefromtop-enter-active {
+  visibility: visible !important;
+  transform: translateY(0) skewY(2deg);
+  transition: transform 800ms;
+}
+
+.slidefromtop-enter-done {
+  transform: skewY(2deg) !important;
+}
+
+.slidefromtop-exit {
+  visibility: visible !important;
+  transform: translateY(0) skewY(2deg);
+}
+
+.slidefromtop-exit-active {
+  visibility: hidden;
+  transform: translateY(-400%) skewY(2deg);
   transition: 800ms ease;
 }

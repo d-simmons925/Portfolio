@@ -1,60 +1,67 @@
-import { useState } from 'react'
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-} from 'reactstrap'
+import { useState, useEffect } from 'react'
 
 const Project = ({ title, images, demo, github, desc }) => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [animating, setAnimating] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [toRight, setToRight] = useState([])
+  const [toLeft, setToLeft] = useState([])
+
+  useEffect(() => {
+    const rightArr = images.filter((image) => image.id - 1 === activeIndex + 1)
+    const leftArr = images.filter((image) => image.id - 1 === activeIndex - 1)
+    setToRight(rightArr)
+    setToLeft(leftArr)
+  }, [activeIndex, images])
 
   const next = () => {
-    if (animating) return
+    setIsAnimating(activeIndex)
     const nextIndex = activeIndex === images.length - 1 ? 0 : activeIndex + 1
     setActiveIndex(nextIndex)
+    setTimeout(() => setIsAnimating(false), 800)
   }
 
   const previous = () => {
-    if (animating) return
+    setIsAnimating(activeIndex)
     const nextIndex = activeIndex === 0 ? images.length - 1 : activeIndex - 1
     setActiveIndex(nextIndex)
-  }
-
-  const goToIndex = (newIndex) => {
-    if (animating) return
-    setActiveIndex(newIndex)
+    setTimeout(() => setIsAnimating(false), 800)
   }
 
   return (
     <div className="project">
-      <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-        <CarouselIndicators
-          items={images}
-          activeIndex={activeIndex}
-          onClickHandler={goToIndex}
-        />
-        {images.map((image) => (
-          <CarouselItem
-            onExiting={() => setAnimating(true)}
-            onExited={() => setAnimating(false)}
-            key={image.id}
+      <div className="carousel">
+        <div className="slider">
+          {images.map((image, index) => (
+            <img
+              src={image.image}
+              alt={image.altText}
+              className={`carousel-img ${activeIndex === index && 'active'} 
+                ${toRight.includes(image) && 'to-right'}
+                ${toLeft.includes(image) && 'to-left'}
+                ${isAnimating === index && 'animating'}
+                `}
+            />
+          ))}
+        </div>
+        <div className="carousel-buttons">
+          <button
+            className={`prev ${activeIndex === 0 && 'disabled'} ${
+              isAnimating !== false && 'disabled'
+            }`}
+            onClick={previous}
           >
-            <img src={image.image} alt={image.altText} />
-          </CarouselItem>
-        ))}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
-        />
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={next}
-        />
-      </Carousel>
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          <button
+            className={`next ${
+              activeIndex === images.length - 1 && 'disabled'
+            } ${isAnimating !== false && 'disabled'}`}
+            onClick={next}
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
       <div className="info">
         <h5>{title}</h5>
         <p>{desc}</p>

@@ -1,9 +1,11 @@
 import './contact.css'
 import { useState } from 'react'
 import axios from 'axios'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
+import { Waypoint } from 'react-waypoint'
 
-const Contact = ({ inContact, handleMsg }) => {
+const Contact = ({ handleMsg }) => {
+  const [inContact, setInContact] = useState(false)
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [message, setMessage] = useState()
@@ -32,7 +34,10 @@ const Contact = ({ inContact, handleMsg }) => {
     <div id="contact">
       <div className="contact-container">
         <h1>Contact Me</h1>
-        <TransitionGroup>
+        <Waypoint
+          onEnter={() => setInContact(true)}
+          onLeave={() => setInContact(false)}
+        >
           <div className="form-container">
             <CSSTransition
               in={inContact}
@@ -90,7 +95,7 @@ const Contact = ({ inContact, handleMsg }) => {
               </form>
             </CSSTransition>
           </div>
-        </TransitionGroup>
+        </Waypoint>
       </div>
       <div className="footer"></div>
     </div>

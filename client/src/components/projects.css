@@ -22,30 +22,77 @@
   border-radius: 8px;
   box-shadow: 10px 10px 30px rgb(5, 38, 65);
   background-color: rgb(5, 38, 65);
+  position: relative;
 }
 
-.carousel-inner,
-.carousel-item {
-  height: 100%;
-}
-
-.carousel-item img {
-  height: 100%;
+.slider {
+  position: absolute;
   width: 100%;
+  height: 100%;
   border-radius: 5px;
+  display: flex;
+  overflow: hidden;
 }
 
-.carousel-indicators {
-  height: 10px;
+.carousel-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  visibility: hidden;
+  z-index: 0;
 }
-.carousel-indicators li {
-  height: 3px;
+
+.carousel-img.to-right {
+  transform: translateX(100%) !important;
+  transition: 800ms ease;
+}
+
+.carousel-img.to-left {
+  transform: translateX(-100%) !important;
+  transition: 800ms ease;
+}
+
+.carousel-img.active {
+  visibility: visible;
+  transform: translateX(0) !important;
+  transition: 800ms ease;
+}
+
+.animating {
+  visibility: visible !important;
+}
+
+.carousel-buttons {
+  position: absolute;
+  display: flex;
+  width: 560px;
+  height: 315px;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.prev,
+.next {
+  height: 100%;
   width: 50px;
-  margin: 10px;
-  background-color: #fff;
-  opacity: 0.3;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 35px;
+  z-index: 3;
   cursor: pointer;
 }
+
+.prev:hover,
+.next:hover {
+  color: rgb(5, 38, 65);
+}
+
+.disabled {
+  visibility: hidden !important;
+}
+
 .project,
 .project-reverse {
   margin-top: 75px;
@@ -74,14 +121,23 @@
   color: rgb(5, 38, 65);
 }
 
-@media only screen and (max-width: 1450px) {
+@media (max-width: 1450px) {
   .project-container {
     height: 207px;
     width: 368px;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 1130px) {
+  .project {
+    flex-direction: column;
+  }
+  .project-reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 580px) {
   #projects {
     width: 100%;
     margin-bottom: 100px;
@@ -91,19 +147,17 @@
     height: 162px;
     width: 288px;
   }
-  .carousel.slide {
+  .carousel {
     width: 320px;
     height: 180px;
     box-shadow: none;
   }
   .project {
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
   }
   .project-reverse {
-    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
@@ -114,9 +168,13 @@
   }
 }
 
-@media only screen and (max-width: 280px) {
-  .project-container {
-    height: 135px;
-    width: 240px;
+@media only screen and (max-width: 320px) {
+  .carousel {
+    width: 272px;
+    height: 153px;
+  }
+
+  .info {
+    width: 280px;
   }
 }

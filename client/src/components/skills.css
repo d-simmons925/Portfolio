@@ -70,7 +70,7 @@ h2 {
   align-self: center;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 580px) {
   .skill-list ul {
     width: 375px;
   }
@@ -82,5 +82,17 @@ h2 {
   .skill-item img {
     height: 50px;
     width: 50px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .skill-list ul {
+    width: 320px;
+  }
+  .skill-item img {
+    height: 30px;
+    width: 30px;
+  }
+  .skill-item span {
+    font-size: 11px;
   }
 }

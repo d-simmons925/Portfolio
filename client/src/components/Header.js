@@ -1,6 +1,6 @@
 import './header.css'
 import resume from '../files/Resume.pdf'
-import me from '../images/me.jpg'
+import me from '../images/me.webp'
 
 const Header = () => {
   return (

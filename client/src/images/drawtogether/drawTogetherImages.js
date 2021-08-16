@@ -1,5 +1,5 @@
-import Main from './main.png'
-import Draw from './draw.png'
+import Main from './main.webp'
+import Draw from './draw.webp'
 
 const drawTogetherImages = [
   { id: 1, image: Main, altText: 'Draw Together index page' },

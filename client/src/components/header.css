@@ -49,7 +49,7 @@
   color: rgb(5, 38, 65);
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 580px) {
   span {
     display: block;
     text-align: center;
@@ -71,5 +71,14 @@
   .header-link a {
     font-size: 50px;
     margin: 30px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .header-link a {
+    font-size: 40px;
+    margin: 20px;
+  }
+  .header-link p {
+    font-size: 11px;
   }
 }

@@ -1,7 +1,7 @@
-import Main from './main.png'
-import Filters from './filters.png'
-import Search from './search.png'
-import CardInfo from './cardinfo.png'
+import Main from './main.webp'
+import Filters from './filters.webp'
+import Search from './search.webp'
+import CardInfo from './cardinfo.webp'
 
 const mernCalendarImages = [
   { id: 1, image: Main, altText: 'Pokemon TCG App index page' },

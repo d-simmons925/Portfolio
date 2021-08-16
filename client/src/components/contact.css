@@ -25,7 +25,6 @@
 .form-container {
   width: 400px;
   transform: skewY(-2deg);
-  overflow-y: hidden;
 }
 
 .form-control {
@@ -106,6 +105,7 @@ form {
   color: #fff;
   height: 50px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .submit:hover {
@@ -116,8 +116,13 @@ form {
   transform: scale(0.95);
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 580px) {
   .form-container {
-    width: 375px;
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .form-container {
+    width: 240px;
   }
 }

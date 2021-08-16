@@ -51,15 +51,39 @@ footer p {
 
 .alert {
   margin: 150px 30% 0px;
+  border-radius: 5px;
   position: fixed;
+  display: flex;
+  justify-content: space-between;
   width: 50%;
   align-self: center;
   z-index: 1;
 }
 
-.alert .close {
-  border: none;
-  float: right;
-  padding-left: 10px;
-  padding-right: 0;
+.alert p {
+  margin-left: 20px;
+}
+
+.success {
+  background-color: rgba(60, 109, 187, 0.8);
+}
+
+.error {
+  background-color: rgba(187, 60, 60, 0.8);
+}
+
+.close {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: rgb(5, 38, 65);
+  border-color: rgb(5, 38, 65);
 }
