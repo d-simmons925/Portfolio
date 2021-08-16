@@ -5,7 +5,6 @@ This is my portfolio that I use as a hub to show my other projects. This web sit
 # Tech used
 
 - React
-- Reactstrap/ Bootstrap 4
 - Axios
 - Express/ Nodejs
 - Nodemailer
