@@ -1,0 +1,89 @@
+html {
+  background: radial-gradient(
+      49% 52% at 84.5% 86%,
+      rgba(60, 109, 187, 1) 0%,
+      rgba(77, 90, 204, 0.18) 96%
+    ),
+    radial-gradient(
+      65% 66% at 12.5% 13%,
+      rgba(79, 134, 228, 0.61) 0%,
+      rgba(77, 90, 134, 1) 96%
+    );
+  min-height: 100%;
+  min-width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+footer {
+  height: 75px;
+  text-align: center;
+  background-color: #212529;
+  padding-top: 10px;
+  z-index: 1000000;
+}
+
+footer p {
+  padding-top: 25px;
+}
+
+.alert {
+  margin: 150px 30% 0px;
+  border-radius: 5px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-self: center;
+  z-index: 1;
+}
+
+.alert p {
+  margin-left: 20px;
+}
+
+.success {
+  background-color: rgba(60, 109, 187, 0.8);
+}
+
+.error {
+  background-color: rgba(187, 60, 60, 0.8);
+}
+
+.close {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: rgb(5, 38, 65);
+  border-color: rgb(5, 38, 65);
+}
