@@ -1,14 +1,6 @@
 html {
-  background: radial-gradient(
-      49% 52% at 84.5% 86%,
-      rgba(60, 109, 187, 1) 0%,
-      rgba(77, 90, 204, 0.18) 96%
-    ),
-    radial-gradient(
-      65% 66% at 12.5% 13%,
-      rgba(79, 134, 228, 0.61) 0%,
-      rgba(77, 90, 134, 1) 96%
-    );
+  background: radial-gradient(49% 52% at 84.5% 86%, rgba(60, 109, 187, 1) 0%, rgba(77, 90, 204, 0.18) 96%),
+    radial-gradient(65% 66% at 12.5% 13%, rgba(79, 134, 228, 0.61) 0%, rgba(77, 90, 134, 1) 96%);
   min-height: 100%;
   min-width: 100%;
   -webkit-background-size: cover;
@@ -22,9 +14,7 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -33,8 +23,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 footer {

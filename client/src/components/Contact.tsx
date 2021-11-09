@@ -1,17 +1,24 @@
 import './contact.css'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { CSSTransition } from 'react-transition-group'
 import { Waypoint } from 'react-waypoint'
 
-const Contact = ({ handleMsg }: { handleMsg: any }) => {
-  const [inContact, setInContact] = useState(false)
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [message, setMessage] = useState()
-  const [phone, setPhone] = useState()
+interface MsgI {
+  type: string
+  msg: string
+}
 
-  const handleSubmit = (e: any) => {
+type PropsFunc = (data: MsgI) => void
+
+const Contact = ({ handleMsg }: { handleMsg: PropsFunc }) => {
+  const [inContact, setInContact] = useState(false)
+  const [name, setName] = useState<string>()
+  const [email, setEmail] = useState<string>()
+  const [message, setMessage] = useState<string>()
+  const [phone, setPhone] = useState<string>()
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const data = {
       name,
@@ -26,7 +33,7 @@ const Contact = ({ handleMsg }: { handleMsg: any }) => {
       },
     }
 
-    axios.post('/email', data, config).then((res) => {
+    axios.post('/email', data, config).then(res => {
       handleMsg(res.data)
     })
   }
@@ -34,16 +41,9 @@ const Contact = ({ handleMsg }: { handleMsg: any }) => {
     <div id="contact">
       <div className="contact-container">
         <h1>Contact Me</h1>
-        <Waypoint
-          onEnter={() => setInContact(true)}
-          onLeave={() => setInContact(false)}
-        >
+        <Waypoint onEnter={() => setInContact(true)} onLeave={() => setInContact(false)}>
           <div className="form-container">
-            <CSSTransition
-              in={inContact}
-              timeout={800}
-              classNames="slidefrombottom"
-            >
+            <CSSTransition in={inContact} timeout={800} classNames="slidefrombottom">
               <form onSubmit={handleSubmit}>
                 <div className="form-control">
                   <input
@@ -51,7 +51,7 @@ const Contact = ({ handleMsg }: { handleMsg: any }) => {
                     id="name"
                     name="name"
                     className="input-text"
-                    onChange={(e: any) => setName(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                     required
                   />
                   <label htmlFor="name">Name</label>
@@ -62,7 +62,7 @@ const Contact = ({ handleMsg }: { handleMsg: any }) => {
                     id="email"
                     name="email"
                     className="input-text"
-                    onChange={(e: any) => setEmail(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                     required
                   />
                   <label htmlFor="email">Email</label>
@@ -73,7 +73,7 @@ const Contact = ({ handleMsg }: { handleMsg: any }) => {
                     id="phone"
                     name="phone"
                     className="input-text"
-                    onChange={(e: any) => setPhone(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)}
                     required
                   />
                   <label htmlFor="phone">Phone Number</label>
@@ -84,7 +84,7 @@ const Contact = ({ handleMsg }: { handleMsg: any }) => {
                     id="message"
                     name="message"
                     className="input-textarea"
-                    onChange={(e: any) => setMessage(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMessage(e.target.value)}
                     required
                   />
                   <label htmlFor="message" className="message-label">

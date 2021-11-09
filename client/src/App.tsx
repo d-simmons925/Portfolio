@@ -6,12 +6,17 @@ import Projects from './components/Projects'
 import AppNavbar from './components/AppNavbar'
 import Contact from './components/Contact'
 
+interface MsgI {
+  type: string
+  msg: string
+}
+
 function App() {
-  const [msg, setMsg] = useState<any | null>(null)
+  const [msg, setMsg] = useState<MsgI | null>(null)
 
   const onDismiss = () => setMsg(null)
 
-  const handleMsg = (data: any) => {
+  const handleMsg = (data: MsgI) => {
     setMsg(data)
   }
 

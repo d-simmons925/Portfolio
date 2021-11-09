@@ -1,20 +1,21 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const Project = ({
-  title,
-  images,
-  demo,
-  github,
-  desc,
-  reverse,
-}: {
+interface ImageI {
+  id: number
+  altText: string
+  image: string
+}
+
+interface ProjectI {
   title: string
-  images: any
+  images: ImageI[]
   demo: string
   github: string
   desc: string
   reverse: boolean
-}) => {
+}
+
+const Project = ({ title, images, demo, github, desc, reverse }: ProjectI) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState<number | null>(null)
   const [toRight, setToRight] = useState([])
@@ -35,8 +36,8 @@ const Project = ({
   }
 
   useEffect(() => {
-    const rightArr = images.filter((image: any) => image.id - 1 > activeIndex)
-    const leftArr = images.filter((image: any) => image.id - 1 < activeIndex)
+    const rightArr = images.filter((image: ImageI) => image.id - 1 > activeIndex)
+    const leftArr = images.filter((image: ImageI) => image.id - 1 < activeIndex)
     setToRight(rightArr)
     setToLeft(leftArr)
     const interval = setInterval(() => {
@@ -49,7 +50,7 @@ const Project = ({
     <div className={`project ${reverse && 'reverse'}`}>
       <div className="carousel">
         <div className="slider">
-          {images.map((image: any, index: number) => (
+          {images.map((image: ImageI, index: number) => (
             <img
               key={image.id}
               src={image.image}
@@ -63,16 +64,10 @@ const Project = ({
           ))}
         </div>
         <div className="carousel-buttons">
-          <button
-            className={`prev  ${isAnimating !== null && 'disabled'}`}
-            onClick={previous}
-          >
+          <button className={`prev  ${isAnimating !== null && 'disabled'}`} onClick={previous}>
             <i className="fas fa-chevron-left"></i>
           </button>
-          <button
-            className={`next  ${isAnimating !== null && 'disabled'}`}
-            onClick={next}
-          >
+          <button className={`next  ${isAnimating !== null && 'disabled'}`} onClick={next}>
             <i className="fas fa-chevron-right"></i>
           </button>
         </div>
