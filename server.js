@@ -21,12 +21,12 @@ app.post('/email', (req, res) => {
   `
 
   let transporter = nodemailer.createTransport({
-    host: config.get('host'),
-    port: config.get('port'),
+    host: config.get('host') || process.env.host,
+    port: config.get('port') || process.env.port,
     secure: false,
     auth: {
-      user: config.get('email'),
-      pass: config.get('pass'),
+      user: config.get('email') || process.env.email,
+      pass: config.get('pass') || process.env.pass,
     },
   })
 
