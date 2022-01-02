@@ -5,6 +5,5 @@ This is my portfolio that I use as a hub to show my other projects. This web sit
 # Tech used
 
 - React
-- Axios
 - Express/ Nodejs
 - Nodemailer
